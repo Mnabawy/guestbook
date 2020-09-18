@@ -20,7 +20,7 @@ module.exports = function validateRegisterInput(data) {
     // Email 
     if(Validator.isEmpty(data.email)){
         errors.email = "Email is Required";
-    }else if(!Validator.isEmpty(data.email)){
+    }else if(!Validator.isEmail(data.email)){
         errors.email = "Email is Invalid";
     }
 
