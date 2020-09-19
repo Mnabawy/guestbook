@@ -16,20 +16,19 @@ class Login extends Component {
     };
   }
 
-  componentDidMount(){
+  componentDidMount() {
     // if logged in and user navigates to login page, should redirect them to home page
-    if(this.props.auth.isAuthenticated)
-    {
+    if (this.props.auth.isAuthenticated) {
       this.props.history.push('/HomePage');
     }
   }
 
-  componentWillReceiveProps(nextProps){
-    if(nextProps.auth.isAuthenticated){
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
       this.props.history.push('/HomePage'); //push user to home page when they login
     }
 
-    if(nextProps.errors){
+    if (nextProps.errors) {
       this.setState({
         errors: nextProps.errors
       })
@@ -47,7 +46,7 @@ class Login extends Component {
       email: this.state.email,
       password: this.state.password,
     }
-   this.props.loginUser(userData); //we don't want to pass in this.props.history  
+    this.props.loginUser(userData); //we don't want to pass in this.props.history  
   };
 
   render() {
@@ -79,13 +78,13 @@ class Login extends Component {
                   id="email"
                   type="email"
                   className={classnames("", {
-                    invalid:errors.password || errors.passwordincorrect
+                    invalid: errors.email || errors.emailnotfound
                   })}
                 />
                 <label htmlFor="email">Email</label>
-                <span className='red-text'>
-                  {errors.password}
-                  {errors.passwordincorrect}
+                <span className="red-text">
+                  {errors.email}
+                  {errors.emailnotfound}
                 </span>
               </div>
               <div className="input-field col s12">
@@ -95,8 +94,15 @@ class Login extends Component {
                   error={errors.password}
                   id="password"
                   type="password"
+                  className={classnames("", {
+                    invalid: errors.password || errors.passwordincorrect
+                  })}
                 />
                 <label htmlFor="password">Password</label>
+                <span className="red-text">
+                  {errors.password}
+                  {errors.passwordincorrect}
+                </span>
               </div>
               <div className="col s12" style={{ paddingLeft: "11.250px" }}>
                 <button
@@ -122,7 +128,7 @@ class Login extends Component {
 
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
-  auth:PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 }
 
@@ -133,5 +139,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {loginUser}
+  { loginUser }
 )(Login);

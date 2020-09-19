@@ -6,7 +6,7 @@ import setAuthToken from './utils/setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './store/store';
 
 import './App.css';
 import Login from './components/auth/Login';
