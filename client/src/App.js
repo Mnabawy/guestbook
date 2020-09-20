@@ -13,7 +13,7 @@ import Login from './components/auth/Login';
 import Landing from './components/layout/Landing';
 import Navbar from './components/layout/Navbar';
 import Register from './components/auth/Register';
-import PrivateRoute from './components/private-route/PrivateRoute'
+import PrivateRoute from './components/private-route/PrivateRoute';
 import HomePage from './components/homepage/HomePage';
 
 

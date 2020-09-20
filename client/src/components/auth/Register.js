@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import {PropTypes} from 'prop-types';
+import { PropTypes } from 'prop-types';
 import { connect } from 'react-redux';
-import { registerUser} from '../../actions/authActions';
+import { registerUser } from '../../actions/authActions';
 import classnames from 'classnames';
 
 class Register extends Component {
@@ -19,7 +19,7 @@ class Register extends Component {
 
   componentDidMount() {
     // if logged in and user navigate to register  page should redirect them to homepage
-    if(this.props.auth.isAuthenticated){
+    if (this.props.auth.isAuthenticated) {
       this.props.history.push('/HomePage');
     }
   }
@@ -78,7 +78,7 @@ class Register extends Component {
                       id="name"
                       type="text"
                       className={classnames("", {
-                        invalid:errors.name
+                        invalid: errors.name
                       })}
                     />
                     <label htmlFor="name">Name</label>
@@ -106,7 +106,7 @@ class Register extends Component {
                       id="password"
                       type="password"
                       className={classnames("", {
-                        invalid:errors.password
+                        invalid: errors.password
                       })}
                     />
                     <label htmlFor="password">Password</label>
@@ -120,7 +120,7 @@ class Register extends Component {
                       id="password2"
                       type="password"
                       className={classnames("", {
-                        invalid:errors.password2
+                        invalid: errors.password2
                       })}
                     />
                     <label htmlFor="password2">Confirm Password</label>
@@ -150,7 +150,7 @@ class Register extends Component {
   }
 }
 
-  Register.propType = {
+Register.propType = {
   registerUser: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
