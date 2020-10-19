@@ -3,7 +3,7 @@ const express = require('express');
 import * as todoController from '../../controllers/todo';
 
 // router
-const router = express.Router();
+const todoRouter = express.Router();
 
 router.route('/')
     .get(todoController.getTodos)
@@ -14,5 +14,5 @@ router.route('/:id')
     .get(todoController.getTodo)
     .delete(todoController.deleteTodo)
 
-module.exports = router;
+module.exports = todoRouter;
 
